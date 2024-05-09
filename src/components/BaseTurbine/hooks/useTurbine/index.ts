@@ -8,8 +8,9 @@ import { MODEL_EQUIPMENT_POSITION_PARAMS_ENUM } from '@/constants/ModelEquipment
 import { MODEL_SKELETON_ENUM } from '@/constants/ModelSkeleton'
 
 const MODEL_SCALES = <const>[0.0001 * 3, 0.0001 * 3, 0.0001 * 3]
+const MODEL_SCALES2 = <const>[0.2 * 3, 0.2 * 3, 0.2 * 3]
 const MODEL_URL = <const>{
-  SKELETON: `${import.meta.env.VITE_API_DOMAIN}/models/turbine.glb`,
+  SKELETON: `${import.meta.env.VITE_API_DOMAIN}/models/1.glb`,
   PLANE: `${import.meta.env.VITE_API_DOMAIN}/models/plane.glb`,
   EQUIPMENT: `${import.meta.env.VITE_API_DOMAIN}/models/equipment.glb`,
 }
@@ -49,10 +50,19 @@ export function useTurbine() {
   }
   // 加载风机骨架
   const loadTurbineSkeleton = async () => {
-    const { scene: object, animations } = await loadGLTF(MODEL_URL.SKELETON)
-    object.scale.set(...MODEL_SCALES)
-    object.position.set(0, 0, 0)
-    loadAnimate(object, animations, animations[0].name)
+    
+    // const { scene: object, animations } = await loadGLTF(MODEL_URL.SKELETON)
+    const { scene: object} = await loadGLTF(MODEL_URL.SKELETON)
+    object.scale.set(...MODEL_SCALES2)
+    // loadAnimate(object, animations, animations[0].name);
+    // object.position.set(0, 0, 0)
+    // 计算模型的几何中心
+    const box = new THREE.Box3().setFromObject(object);
+    const center = box.getCenter(new THREE.Vector3());
+
+    // 将模型的位置设置为几何中心的负值
+    object.position.set(-center.x, -center.y + 0.65, -center.z);
+
     object.name = 'skeleton'
     modelSkeleton.value = object
     turbine.add(object)
@@ -224,10 +234,18 @@ export function useTurbine() {
     onUnmounted(() => document.removeEventListener('click', handler))
   }
   onMounted(async () => {
+
+    // 创建一个AxesHelper实例
+    const axesHelper = new THREE.AxesHelper(5);
+    // 将AxesHelper添加到场景中
+    scene.value?.add(axesHelper);
+
     loading.value = true
     scene.value?.add(turbine)
-    camera.value?.position.set(-1, 3.5, 2)
-    control.value?.target.set(0, 2.6, 0)
+    camera.value?.position.set(3, 6, -4)
+    // camera.value?.position.set(-1, 3.5, 2)
+    control.value?.target.set(0, 0, 0)
+    // control.value?.target.set(0, 2.6, 0)
     control.value?.update()
     loadLights()
     await loadModels([

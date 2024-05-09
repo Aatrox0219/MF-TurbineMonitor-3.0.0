@@ -16,7 +16,7 @@ onMounted(() => {
     credits: { enabled: false },
     chart: {
       renderTo: continer.value,
-      type: 'column',
+      type: 'line',
       backgroundColor: 'rgba(0,0,0,0)',
       options3d: {
         enabled: true,
@@ -62,7 +62,7 @@ onMounted(() => {
       enabled: false,
     },
     plotOptions: {
-      column: {
+      line: {
         depth: 20,
         borderColor: '',
         dataLabels: {
