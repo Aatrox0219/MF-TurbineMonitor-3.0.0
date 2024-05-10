@@ -62,8 +62,6 @@ onMounted(() => {
       enabled: false,
     },
     plotOptions: {
-      //测试git
-      //测试git
       line: {
         depth: 20,
         borderColor: '',
