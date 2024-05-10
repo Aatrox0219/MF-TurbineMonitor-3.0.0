@@ -7,7 +7,7 @@
   </div>
 </template>
 <script setup lang="ts">
-const appName = '大型风力发电机监控平台'
+const appName = 'Global汇控柜数据监控平台'
 </script>
 <style lang="scss" scoped>
 .layout {

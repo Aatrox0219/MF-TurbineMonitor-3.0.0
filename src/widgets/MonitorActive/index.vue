@@ -1,5 +1,5 @@
 <template>
-  <WidgetPanel title="活动监测">
+  <WidgetPanel title="状态监测">
     <BaseTable :columns="columns" :data="dataSource"></BaseTable>
   </WidgetPanel>
 </template>
@@ -27,63 +27,23 @@ const columns = [
 ]
 const dataSource = reactive([
   {
-    name: '发动机',
-    time: '2023/04/02 12:00',
+    name: 'L1电压',
+    time: '2024/06/12 12:00',
     status: '正常',
   },
   {
-    name: '齿轮箱',
-    time: '2023/04/02 12:00',
+    name: 'L2电压',
+    time: '2024/06/12 12:00',
     status: '正常',
   },
   {
-    name: '变桨系统',
-    time: '2023/04/02 12:00',
+    name: 'L3电压',
+    time: '2024/06/12 12:00',
     status: '正常',
   },
   {
-    name: '主轴',
-    time: '2023/04/02 12:00',
-    status: '正常',
-  },
-  {
-    name: '叶片',
-    time: '2023/04/02 12:00',
-    status: '正常',
-  },
-  {
-    name: '偏航角度',
-    time: '2023/04/02 12:00',
-    status: '正常',
-  },
-  {
-    name: '发动机',
-    time: '2023/04/02 12:00',
-    status: '正常',
-  },
-  {
-    name: '齿轮箱',
-    time: '2023/04/02 12:00',
-    status: '正常',
-  },
-  {
-    name: '变桨系统',
-    time: '2023/04/02 12:00',
-    status: '正常',
-  },
-  {
-    name: '主轴',
-    time: '2023/04/02 12:00',
-    status: '正常',
-  },
-  {
-    name: '叶片',
-    time: '2023/04/02 12:00',
-    status: '正常',
-  },
-  {
-    name: '偏航角度',
-    time: '2023/04/02 12:00',
+    name: 'UPS电压',
+    time: '2024/06/12 12:00',
     status: '正常',
   },
 ])

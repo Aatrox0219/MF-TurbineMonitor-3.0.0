@@ -1,5 +1,5 @@
 <template>
-  <WidgetPanel title="环境监测">
+  <WidgetPanel title="运行情况监测">
     <div ref="container" class="widget-safty"></div>
   </WidgetPanel>
 </template>
@@ -49,9 +49,9 @@ onMounted(() => {
       {
         name: '时长',
         data: [
-          ['停机维护', 24],
-          ['故障维护', 16],
-          ['正常运行', 87],
+          ['停机维护', 12],
+          ['故障维护', 13],
+          ['正常运行', 186],
           ['保养维护', 3],
         ],
       },

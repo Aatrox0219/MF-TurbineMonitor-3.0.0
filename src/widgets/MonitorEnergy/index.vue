@@ -1,5 +1,5 @@
 <template>
-  <WidgetPanel title="发电监测">
+  <WidgetPanel title="直流侧电流检测">
     <div ref="continer" class="widget-statistics-chart"></div>
   </WidgetPanel>
 </template>
@@ -28,15 +28,15 @@ onMounted(() => {
     },
     xAxis: {
       categories: [
-        '#1风机',
-        '#2风机',
-        '#3风机',
-        '#4风机',
-        '#5风机',
-        '#6风机',
-        '#7风机',
-        '#8风机',
-        '#9风机',
+        '2024/06/04 12:00',
+        '2024/06/05 12:00',
+        '2024/06/06 12:00',
+        '2024/06/07 12:00',
+        '2024/06/08 12:00',
+        '2024/06/09 12:00',
+        '2024/06/10 12:00',
+        '2024/06/11 12:00',
+        '2024/06/12 12:00',
       ],
       tickWidth: 0,
       gridLineWidth: 0,
@@ -53,7 +53,7 @@ onMounted(() => {
       left: '10px',
     },
     tooltip: {
-      pointFormat: '本月发电量: {point.y}MWh',
+      pointFormat: '直流侧电流: {point.y}A',
     },
     title: {
       text: '',
@@ -62,7 +62,7 @@ onMounted(() => {
       enabled: false,
     },
     plotOptions: {
-      //测试git
+
       line: {
         depth: 20,
         borderColor: '',
@@ -83,7 +83,7 @@ onMounted(() => {
     },
     series: [
       {
-        data: [22, 42, 99, 97, 98, 40, 97, 98, 40],
+        data: [22.1, 23.2, 22.2, 22.5, 22.6, 22.4, 23.1, 21.9, 22.2],
         colorByPoint: true,
       },
     ],

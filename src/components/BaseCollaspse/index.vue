@@ -24,7 +24,7 @@
   </Collapse>
 </template>
 <script setup lang="ts">
-import { Collapse , CollapseItem } from '@arco-design/web-vue'
+import { Collapse, CollapseItem } from '@arco-design/web-vue'
 
 interface PropsType {
   title: string
