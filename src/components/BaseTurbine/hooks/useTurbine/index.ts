@@ -10,7 +10,7 @@ import { MODEL_SKELETON_ENUM } from '@/constants/ModelSkeleton'
 const MODEL_SCALES = <const>[0.0001 * 3, 0.0001 * 3, 0.0001 * 3]
 const MODEL_SCALES2 = <const>[0.2 * 3, 0.2 * 3, 0.2 * 3]
 const MODEL_URL = <const>{
-  SKELETON: `${import.meta.env.VITE_API_DOMAIN}/models/1.glb`,
+  SKELETON: `${import.meta.env.VITE_API_DOMAIN}/models/2.glb`,
   PLANE: `${import.meta.env.VITE_API_DOMAIN}/models/plane.glb`,
   EQUIPMENT: `${import.meta.env.VITE_API_DOMAIN}/models/equipment.glb`,
 }
