@@ -2,19 +2,19 @@
   <WidgetPanel title="参数监测">
     <ul class="widget-rain">
       <li class="rain-item normal">
-        <span class="label">年发电量</span>
-        <span class="value">1000</span>
-        <span class="unit">MWh</span>
+        <span class="label">L1电压</span>
+        <span class="value">380</span>
+        <span class="unit">V</span>
       </li>
       <li class="rain-item normal">
-        <span class="label">月发电量</span>
-        <span class="value">100</span>
-        <span class="unit">MWh</span>
+        <span class="label">L2电压</span>
+        <span class="value">380</span>
+        <span class="unit">V</span>
       </li>
       <li class="rain-item normal">
-        <span class="label">周发电量</span>
-        <span class="value">10</span>
-        <span class="unit">MWh</span>
+        <span class="label">L3电压</span>
+        <span class="value">380</span>
+        <span class="unit">V</span>
       </li>
       <li class="rain-item normal">
         <span class="label">日发电量</span>
