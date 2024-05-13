@@ -10,7 +10,7 @@ import { MODEL_SKELETON_ENUM } from '@/constants/ModelSkeleton'
 const MODEL_SCALES = <const>[0.0001 * 3, 0.0001 * 3, 0.0001 * 3]
 const MODEL_SCALES2 = <const>[0.2 * 3, 0.2 * 3, 0.2 * 3]
 const MODEL_URL = <const>{
-  SKELETON: `${import.meta.env.VITE_API_DOMAIN}/models/1.glb`,
+  SKELETON: `${import.meta.env.VITE_API_DOMAIN}/models/2.glb`,
   PLANE: `${import.meta.env.VITE_API_DOMAIN}/models/plane.glb`,
   EQUIPMENT: `${import.meta.env.VITE_API_DOMAIN}/models/equipment.glb`,
 }
@@ -43,7 +43,7 @@ export function useTurbine() {
       [100, 100, -100],
     ]
     forEach(LIGHT_LIST, ([x, y, z]) => {
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 3)
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
       directionalLight.position.set(x, y, z)
       scene.value?.add(directionalLight)
     })
@@ -63,6 +63,15 @@ export function useTurbine() {
     // 将模型的位置设置为几何中心的负值
     object.position.set(-center.x, -center.y + 0.65, -center.z);
 
+    // 遍历模型的所有材质并设置颜色
+    object.traverse((node) => {
+      if (node instanceof THREE.Mesh) {
+        const mesh = node as THREE.Mesh;
+        // mesh.material = new THREE.MeshStandardMaterial({ color: 0x959ea9 , map: null  });
+        mesh.material = new THREE.MeshStandardMaterial({ color: 0x636363 , map: null  });
+      }
+    });
+    
     object.name = 'skeleton'
     modelSkeleton.value = object
     turbine.add(object)
@@ -235,16 +244,15 @@ export function useTurbine() {
   }
   onMounted(async () => {
 
-    // 创建一个AxesHelper实例
-    const axesHelper = new THREE.AxesHelper(5);
-    // 将AxesHelper添加到场景中
-    scene.value?.add(axesHelper);
+    // 创建一个三维坐标轴
+    // const axesHelper = new THREE.AxesHelper(5);
+    // scene.value?.add(axesHelper);
 
     loading.value = true
     scene.value?.add(turbine)
-    camera.value?.position.set(3, 6, -4)
+    camera.value?.position.set(0, 1, 6)
     // camera.value?.position.set(-1, 3.5, 2)
-    control.value?.target.set(0, 0, 0)
+    control.value?.target.set(0, 1, 0)
     // control.value?.target.set(0, 2.6, 0)
     control.value?.update()
     loadLights()

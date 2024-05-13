@@ -8,6 +8,7 @@ interface DebounceOptions {
   trailing?: boolean
   maxWait?: number
 }
+
 function useDebounceFn<T extends noop>(fn: T, options?: DebounceOptions) {
   if (isFunction(fn)) {
     console.error(`useDebounceFn第一个参数应该是函数, 却得到一个${typeof fn}`)
